@@ -1,0 +1,312 @@
+body {
+    display: grid;
+    justify-content: center; 
+    align-content: center;   
+    grid-template: 
+    "header" 10vh 
+    "main" 90vh
+    "main2" 70vh
+    "form" 70vh
+    "footer" 10vh
+    / 100vw;
+}
+
+header {
+    background-color: grey;
+    grid-area: header;
+}
+
+/* main1 starts */
+.main1 {
+    background-image: url("clouds.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: beige;
+    grid-area: main;
+    
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template: 
+    "top-left top-right" 300px
+    "btm-left btm-right" 300px
+    / 600px 600px;
+    grid-gap: 40px;
+}
+
+.item {
+    background-color: rgb(119, 150, 69);    
+    display: flex;
+    flex-direction: columns;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.main1 :first-child {
+    grid-area: top-left;
+}
+
+.main1 :nth-child(2) {
+    grid-area: top-right;
+}
+
+.main1 :nth-child(3) {
+    grid: btm-left;
+}
+
+.main1 :last-child {
+    grid: btm-right;
+}
+
+.in-item {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    flex-direction: columns;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    box-sizing: border-box;
+    animation: fadeIn 2s ease;
+}
+
+.in-item:hover {
+    width: 600px;
+    height: 300px;
+    animation: change 0.5s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes change {
+    0% {
+        background-color: white;
+        border: 1px solid black;
+    }
+
+    100% {
+        background-color: rgb(119, 150, 69);    
+        border: none;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .main1 {
+        background-color: beige;
+        grid-area: main;
+        
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        grid-template: 
+        "top-left top-right" 300px
+        "btm-left btm-right" 300px
+        / 300px 300px;
+        grid-gap: 40px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .main1 {
+        grid-area: main;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        grid-template: 
+        "top-left" 100px
+        "top-right" 100px
+        "btm-left" 100px
+        "btm-right" 100px
+        / 300px;
+        grid-gap: 40px;
+    }
+    
+    .item {
+        background-color: rgb(119, 150, 69);            
+        display: flex;
+        flex-direction: columns;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .main1 :first-child {
+        grid-area: top-left;
+    }
+    
+    .main1 :nth-child(2) {
+        grid-area: top-right;
+    }
+    
+    .main1 :nth-child(3) {
+        grid: btm-left;
+    }
+    
+    .main1 :last-child {
+        grid: btm-right;
+    }
+    
+    .in-item {
+        width: 300px;
+        height: 100px;
+        background-color: white;
+        display: flex;
+        flex-direction: columns;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        box-sizing: border-box;
+        animation: fadeIn 3s ease;
+    }
+    
+    .in-item:hover {
+        width: 400px;
+        height: 100px;
+        animation: change 3s ease;
+    }
+}
+
+/* main2 starts */
+.main2 {
+    background-color: white;
+    grid-area: main2;
+    display: grid;
+    grid-template: 
+    "item-2" 300px
+    / 600px;
+    justify-content: center;
+    margin-top: 160px;
+}
+
+.main2 :first-child {
+    grid-area: item-2;
+    line-height: 40px;
+    font-size: 150%;
+}
+
+@media screen and (max-width: 780px) {
+    .main2 {
+        grid-template: 
+        "item-2" 500px
+        / 400px;
+        justify-content: center;
+        margin-top: 80px;
+    }
+}
+
+/* form starts */
+form {
+    /* background-image: url("sibahu.jpg"); */
+    /* background-attachment: fixed; */
+    /* background-size: cover; */
+    background-color: beige;
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form h1 {
+    border-bottom: 3px solid black;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+}
+
+.input {
+    display: flex;
+    justify-content: space-around;
+}
+
+.input p {
+    margin: 20px;
+    font-size: 150%;
+    padding-top: 10px;
+}
+
+.name, .email {
+    width: 500px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.message {
+    padding-top: 5px;
+    width: 500px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.submit {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(216, 152, 33);
+    border: 2px solid black;
+    font-size: 200%;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 780px) {
+    
+    .input {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .name, .email, .message {
+        margin: 0;
+        width: 300px
+    }
+
+    .name, .email {
+        height: 30px;
+    }
+
+    .message {
+        height: 200px;
+    }
+
+    .input p {
+        align-items: left;
+        margin: 0;
+        font-size: 130%;
+    }
+
+    .submit {
+        margin-top: 20px;
+    }
+}
+
+/* footer starts */
+footer {
+    background-color: grey;
+    grid-area: footer;
+    text-align: center;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+
+footer h6 {
+    margin-left: 20px;
+    margin-top: 30px;
+}
